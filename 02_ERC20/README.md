@@ -1,0 +1,11 @@
+# ERC20
+- https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
+- remix https와 http로 접속했을 때 스토리지가 다름
+    - 필요에 따라 접속
+- 솔리디티 공식 문서 https://solidity.readthedocs.io
+- pragma solidity >=0.4 <0.7
+- pragma solidity ^0.6.0;
+- 0.6.0 버전 이후 부터는 string이 memory인지 storage인지 구분해서 적어줘야 함
+- view(Write X Read O) / pure(Write X Read X)
+- 구조체는 return 할 수 없음
+- 이더리움은 실패한 tx도 블록에 담기 때문에 event를 통해 정상 실행되었다는 것을 알림
