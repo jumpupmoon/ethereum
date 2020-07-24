@@ -42,8 +42,23 @@ class PostStorage {
         })();
     }
 
-    newPost() {
+    newPost(component, post) {
+        // 메타마스크와 연결이 안 되어 있을 경우 경고 및 종료
+        if(!window.ethereum) {
+            console.warn('You need wallet to write a now post');
+            return;
+        }
+        // 메타마스크와 연동
+        window.ethereum.enable();
 
+        (async () => {
+            try {
+                await contract.methods.newPost(post.contents).send({from: window.ethereum.selectedAddress});
+                component.body.value = '';
+            } catch(error) {
+                console.error(error.message);                
+            }
+        })();
     }
 
     insertPost(post) {
